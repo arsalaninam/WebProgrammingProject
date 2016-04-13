@@ -1,3 +1,30 @@
+<?php  
+
+$con = mysql_connect("localhost","root","") or die("Connection Error");
+mysql_select_db("wp") or die("DB Selection Error");
+
+if(isset($_POST['sub'])){
+
+
+
+$name = $_POST['namesignup'];
+$uname = $_POST['usernamesignup'];
+$email = $_POST['emailsignup'];
+$pass = $_POST['passwordsignup'];
+$confirmpass = $_POST['passwordsignup_confirm'];
+
+
+$sql="insert into signupcustomer values('$name','$uname','$email','$pass','$confirmpass') ";
+mysql_query($sql);
+
+echo $name.$uname;
+
+
+
+}
+
+?>
+
 <!DOCTYPE html>
 <!--[if lt IE 7 ]> <html lang="en" class="no-js ie6 lt8"> <![endif]-->
 <!--[if IE 7 ]>    <html lang="en" class="no-js ie7 lt8"> <![endif]-->
@@ -25,7 +52,7 @@
                        
 
                         <div id="login" class="animate form">
-                            <form  action="mysuperscript.php" autocomplete="on" method="POST"> 
+                            <form  method="POST" autocomplete="on"> 
                                 <h1> Sign up as a Customer</h1> 
                                 
                                 <p> 
@@ -54,7 +81,7 @@
                                 
                                 
                                 <p class="signin button"> 
-									<input type="submit" value="Sign up"/> 
+									<input type="submit" name="sub" value="Sign up"/> 
 								</p>
                                 
                             </form>
