@@ -1,4 +1,34 @@
+<?php  
 
+$con = mysql_connect("localhost","root","") or die("Connection Error");
+mysql_select_db("wp") or die("DB Selection Error");
+
+if(isset($_POST['sub'])){
+
+
+
+$name = $_POST['namesignup'];
+$uname = $_POST['usernamesignup'];
+$email = $_POST['emailsignup'];
+$pass = $_POST['passwordsignup'];
+$confirmpass = $_POST['passwordsignup_confirm'];
+$contact = $_POST['usercontact'];
+$address = $_POST['useraddress'];
+$location = $_POST['userarea'];
+$info = $_POST['userinfo'];
+
+
+
+$sql="insert into signupchef values('$name','$uname','$email','$pass','$confirmpass','$contact','$address','$location','$info') ";
+mysql_query($sql);
+
+echo $name.$uname;
+
+
+
+}
+
+?>
 
 <!DOCTYPE html>
 <!--[if lt IE 7 ]> <html lang="en" class="no-js ie6 lt8"> <![endif]-->
@@ -33,11 +63,11 @@
                         
 
                         <div id="login" class="animate form">
-                            <form  action="mysuperscript.php" autocomplete="on"> 
+                            <form  method="POST" autocomplete="on"> 
                                 <h1> Sign up as Chef/Cook</h1> 
                                 <p> 
-                                    <label for="usernamesignup" class="name" data-icon="u">Your Name</label>
-                                    <input id="usernamesignup" name="usernamesignup" required="required" type="text" placeholder="eg. Cristiano Ronaldo" />
+                                    <label for="namesignup" class="name" data-icon="u">Your Name</label>
+                                    <input id="namesignup" name="namesignup" required="required" type="text" placeholder="eg. Cristiano Ronaldo" />
                                 </p>
 
                                 <p> 
@@ -68,7 +98,7 @@
 
                                 <p> 
                                     <label for="useraddress" class="address" data-icon="u">Your Address</label>
-                                    <input id="useraddress" name="userladdress" required="required" type="text" placeholder="eg. Banglow # 2, Street-14, Clifton-Karachi" />
+                                    <input id="useraddress" name="useraddress" required="required" type="text" placeholder="eg. Banglow # 2, Street-14, Clifton-Karachi" />
                                 </p>
 
                                 <p> 
@@ -87,7 +117,7 @@
 
 
                                 <p class="signin button"> 
-									<input type="submit" value="Sign up"/> 
+									<input type="submit" name="sub" value="Sign up"/> 
 								</p>
                             
                             </form>
