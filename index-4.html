@@ -21,6 +21,11 @@
 <script src="js/TMForm.js"></script>
 <script src="js/modal.js"></script>
 
+
+
+  <link rel="stylesheet"  href="createpopupform/css/elements.css" />
+  <script src="createpopupform/js/my_js.js"></script> 
+
 <script>
  $(document).ready(function(){
 
@@ -42,7 +47,7 @@
 <![endif]-->
 </head>
 
-<body>
+<body id ="bdy" onclick = "check(event)">
 <!--==============================
               header
 =================================-->
@@ -62,10 +67,11 @@
           <div class="navigation ">
             <nav>
               <ul class="sf-menu">
-               <li><a href="index.html">home</a></li>
-               <li><a href="index-1.html">menu</a></li>
-               <li><a href="index-2.html">reservation</a></li>
-               <li class="current"><a href="index-4.html">contacts</a></li>
+               <li><a href="index.html">Home</a></li>
+               <li><a href="index-1.html">Menu</a></li>
+               <li><a href="index-4.html">Contacts</a></li>
+               <li><a id = "popup" onclick ="div_show()">Log In/ Register</a></li>
+               
              </ul>
             </nav>        
             <div class="clear"></div>
